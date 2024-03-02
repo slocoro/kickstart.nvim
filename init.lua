@@ -145,6 +145,9 @@ vim.opt.inccommand = 'split'
 -- Show which line your cursor is on
 vim.opt.cursorline = true
 
+-- Show column line
+vim.opt.colorcolumn = '88'
+
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
@@ -614,7 +617,7 @@ require('lazy').setup {
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
+        python = { 'isort', 'black' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
@@ -622,6 +625,10 @@ require('lazy').setup {
       },
     },
   },
+
+  { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {
+    indent = { char = '╎' },
+  } },
 
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
